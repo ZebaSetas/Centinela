@@ -1,0 +1,109 @@
+<nb-card>
+    <nb-card-header>
+        <div class="title-left">
+            <div class="bugId label">
+                #{{bugId}}
+            </div>
+            <div class="title form-control-group">
+                <div>
+                    <label [hidden]="editTitle" class="text-title" value=title>{{title}}</label>
+                    <input (keyup)="changeTitle($event)" [hidden]="!editTitle" type="text" class="text-title" nbInput placeholder="Titulo" value={{title}}>
+                    <button [hidden]="!isAdmin || editTitle" class="buttonGhost" ghost (click)="editTitleOnClick()"><i class="far fa-edit"></i></button>
+                    <button [hidden]="!editTitle" class="buttonGhost" ghost (click)="saveTitleOnClick()"><i class="fas fa-save"></i></button>
+                </div>
+                <div class="organization">
+                    <div class="system label">
+                        {{system}}
+                    </div>
+                    <div class="enviroment">
+                        ({{environment}})
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="left">
+                <div class="description labelBug">
+                    <div class="label">
+                        Descripción
+                    </div>
+                    <div class="description-block" [hidden]="isAdmin && editDesc">
+                        <div class="description-text">
+                            {{description}}
+                        </div>
+                    </div>
+                    <div class="description-block" [hidden]="!isAdmin || !editDesc">
+                        <div class="description-text">
+                            <textarea (keyup)="changeDescription($event)" rows="4" nbInput fullWidth placeholder="{{description}}">{{description}}</textarea>
+                        </div>
+                    </div>
+                    <div class="buttonAction">
+                        <button [hidden]="!isAdmin || editDesc" class="buttonGhost" ghost (click)="editDescOnClick()"><i class="far fa-edit"></i></button>
+                        <button [hidden]="!isAdmin || !editDesc" class="buttonGhost" ghost (click)="saveDescOnClick()"><i class="fas fa-save"></i></button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="rigth">
+                <div class="form-group row">
+                    <div class="state label labelBug">
+                        Estado
+                    </div>
+                    <div class="stateValue cbox">
+                        <nb-select class="cboxLarge" selected={{stateId}} (selectedChange)="onMenuItemSelected($event)">
+                            <nb-option value="1">No resuelto</nb-option>
+                            <nb-option value="2">Fue resuelto</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="severity label labelBug">
+                        Severidad
+                    </div>
+                    <div class="severityValue" [hidden]="isAdmin">
+                        <div class={{circle}}></div>
+                        <label>{{severity}}</label>
+                    </div>
+                    <div class="severityValue" [hidden]="!isAdmin">
+                        <div class={{circle}}></div>
+                        <!-- <nb-select selected={{severity}} (selectedChange)="onMenuItemSelectedSeverity($event)"> -->
+                        <nb-select class="cboxMin" selected={{severity}} (selectedChange)="onMenuItemSelectedSeverity($event)">
+                            <nb-option value="1">
+                                <div class="circle1"></div>
+                                <label>1</label>
+                            </nb-option>
+                            <nb-option value="2">
+                                <div class="circle2"></div>
+                                <label>2</label>
+                            </nb-option>
+                            <nb-option value="3">
+                                <div class="circle3"></div>
+                                <label>3</label>
+                            </nb-option>
+                            <nb-option value="4">
+                                <div class="circle4"></div>
+                                <label>4</label>
+                            </nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="developer label labelBug">
+                        Desarrollador
+                    </div>
+                    <div class="developerValue" [hidden]="isAdmin">
+                        {{developer}}
+                    </div>
+                    <div class="stateValue" [hidden]="!isAdmin" class="developerValue">
+                        <nb-select class="cboxLarge" selected={{developer}} (selectedChange)="onMenuUserSelected($event)">
+                            <nb-option *ngFor="let user of users" [value]="user.name">{{user.name}}</nb-option>
+                        </nb-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-card-body>
+
+</nb-card>

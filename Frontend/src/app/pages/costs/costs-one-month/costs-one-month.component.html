@@ -1,0 +1,40 @@
+<nb-card>
+    <nb-card-header>
+        <h3 class="botom">{{title}}</h3>
+    </nb-card-header>
+    <div>
+        <nb-card-body>
+            <div class="container">
+                <div class="row botom">
+                    <table class="table table-bordered mt-4">
+                        <tr>
+                            <th>Item</th>
+                            <th>Cantidad</th>
+                            <th>Unidad</th>
+                            <th>Total</th>
+                        </tr>
+                        <tr *ngFor="let cost of costs">
+                            <td>{{cost.name}}</td>
+                            <td>{{cost.count}}</td>
+                            <td>U$s {{cost.unitCost}}</td>
+                            <td>U$s {{cost.finalCost}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Costo final</td>
+                            <td>U$s {{finalCost}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </nb-card-body>
+    </div>
+    <nb-card-footer>
+        <div class="botom">
+            <button nbButton outline status="info" (click)="downloadPDF()">Descargar</button>
+        </div>
+    </nb-card-footer>
+
+</nb-card>

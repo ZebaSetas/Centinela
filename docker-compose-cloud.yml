@@ -1,0 +1,122 @@
+version: "3.7"
+services: 
+    nginx:
+        build: ./nginx
+        container_name: nginx
+        ports:
+            - "80:80"
+        depends_on: 
+                - users
+                - bugs-api
+                - organizations
+                - notifications
+                - mailsender
+                - reports
+                - costs
+        networks: 
+        - centinela-net
+        logging:
+            driver: syslog
+            options:
+                syslog-address: "udp://logs.papertrailapp.com:39799"
+                tag: "{{.Name}}/{{.ID}}"
+    users:
+        build: ./users
+        container_name: users
+        command: ["node", "index.js"]
+        env_file: 
+            - production.env
+        ports: 
+            - "5000:5000"
+        networks: 
+            - centinela-net
+    organizations:
+        build: ./organizations
+        container_name: organizations
+        command: >
+         sh -c "ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &&
+         echo $TZ > /etc/timezone &&
+         exec node index.js"
+        env_file: 
+            - production.env
+        ports: 
+            - "5001:5001"
+        networks: 
+            - centinela-net
+    bugs-api:
+        build: ./bugs
+        container_name: bugs-api
+        command: ["node", "index.js"]
+        env_file: 
+            - production.env
+        ports: 
+            - "5002:5002"
+        networks: 
+            - centinela-net
+    bugs-processor:
+        build: ./bugs
+        container_name: bugs-processor
+        command: ["node", "bugProcessor.js"]
+        env_file: 
+            - production.env
+        networks: 
+            - centinela-net
+    bugs-queue-processor:
+        build: ./bugs
+        container_name: bugs-queue-processor
+        command: ["node", "queueProcessor.js"]
+        env_file: 
+            - production.env
+        networks: 
+            - centinela-net
+    costs:
+        build: ./CostExplorer
+        container_name: costs
+        env_file: 
+            - ./CostExplorer/.env
+            - production.env
+        ports:
+            - "5004:5004"        
+        networks: 
+            - centinela-net
+    mailsender:
+        build: ./mailSender
+        container_name: mailsender
+        command: ["node", "index.js"]
+        env_file: 
+            - production.env
+        ports:
+            - "5005:5005"        
+        networks: 
+            - centinela-net
+    reports:
+        build: ./reports
+        container_name: reports
+        command: ["node", "index.js"]
+        env_file: 
+            - production.env
+        ports:
+            - "5006:5006"
+        networks: 
+            - centinela-net
+    reports-queue-processor:
+        build: ./reports
+        container_name: reports-queue-processor
+        command: ["node", "queueProcessor.js"]
+        env_file: 
+            - production.env
+        networks: 
+            - centinela-net
+    notifications:
+        build: ./notifications
+        container_name: notifications
+        command: ["node", "index.js"]
+        env_file: 
+            - production.env
+        ports:
+            - "5007:5007"
+        networks: 
+            - centinela-net
+networks:
+    centinela-net:
+        name: centinela-net

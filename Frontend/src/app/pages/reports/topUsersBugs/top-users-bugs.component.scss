@@ -1,0 +1,25 @@
+@import '../../../@theme/styles/themes';
+@include nb-install-component() {
+    .list-card {
+        nb-card-header {
+            border-bottom: none;
+        }
+        nb-card-body {
+            padding: 0;
+        }
+    }
+    nb-layout-column {
+        padding-left: 0px !important;
+        padding-bottom: 0px !important;
+        padding-right: 0px !important;
+        padding-top: 0px !important;
+    }
+}
+
+.col-lg-6 {
+    margin: auto;
+}
+
+.no-margin {
+    margin-bottom: 0px;
+}

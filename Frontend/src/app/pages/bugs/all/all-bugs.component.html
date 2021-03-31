@@ -1,0 +1,33 @@
+<nb-card>
+    <nb-card-header>
+        <div class="container">
+            <div class="left">
+                {{pageName}}
+            </div>
+            <div class="rigth">
+                <nb-select selected="1" (selectedChange)="onMenuItemSelected($event)">
+                    <nb-option value="1">No resueltos</nb-option>
+                    <nb-option value="2">Resueltos</nb-option>
+                    <nb-option value="3">Todos</nb-option>
+                </nb-select>
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="routeToAPage($event)">
+        </ng2-smart-table>
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="buttonNavigate">
+            <button [hidden]="!hasPrevius" nbButton outline status="primary" (click)="onClickButtonLeft()" size="large" ghost>
+                <i class="fas fa-chevron-circle-left "></i>
+                &nbsp;&nbsp;Atrás 
+            </button>
+            <button [hidden]="!hasNext" nbButton outline status="primary" (click)="onClickButtonRigth()" size="large" ghost>          
+                Siguientes&nbsp;&nbsp; 
+                <i class="fas fa-chevron-circle-right "></i>
+            </button>
+        </div>
+    </nb-card-footer>
+
+</nb-card>

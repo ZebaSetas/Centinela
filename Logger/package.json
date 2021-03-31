@@ -1,0 +1,32 @@
+{
+  "name": "centinela-logger",
+  "version": "2.0.1",
+  "description": "Ésta es una librería personalizada de logging basada en winston.",
+  "main": "centinela-logger.js",
+  "dependencies": {
+    "config": "^3.3.3",
+    "express-http-context": "^1.2.4",
+    "winston": "^3.3.3",
+    "winston-syslog": "^2.4.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Larrosa-Settimo-Zawrzykraj",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArqSoftPractica/Larrosa-Settimo-Zawrzykraj-Logger.git"
+  },
+  "keywords": [
+    "Logger",
+    "Winston",
+    "Centinela",
+    "Syslog"
+  ],
+  "bugs": {
+    "url": "https://github.com/ArqSoftPractica/Larrosa-Settimo-Zawrzykraj-Logger/issues"
+  },
+  "homepage": "https://github.com/ArqSoftPractica/Larrosa-Settimo-Zawrzykraj-Logger#readme"
+}

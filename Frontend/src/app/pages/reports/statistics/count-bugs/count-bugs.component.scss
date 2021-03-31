@@ -1,0 +1,45 @@
+@import '../../../../@theme/styles/themes';
+@include nb-install-component() {
+    ngx-chartjs-pie,
+    ngx-chartjs-bar,
+    ngx-chartjs-line,
+    ngx-chartjs-multiple-xaxis,
+    ngx-chartjs-bar-horizontal,
+    ngx-chartjs-radar {
+        display: block;
+        height: nb-theme(card-height-medium);
+        width: 100%;
+         ::ng-deep chart {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.header {
+    margin-left: 3.5%;
+    width: 93.5%;
+}
+
+.charts {
+    width: 100%;
+    .chart {
+        margin-left: 3.5%;
+        width: 45%;
+    }
+}
+
+.form {
+    height: 35px;
+    margin-left: 20px;
+}
+
+.datepicker {
+    width: 245px;
+}
+
+.result {
+    margin-left: 3.5%;
+    width: 93.5%;
+}

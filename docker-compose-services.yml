@@ -1,0 +1,44 @@
+version: "3.7"
+services: 
+    postgres:
+        container_name: postgres
+        image: postgres:12
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=centinelaDevPwd
+            - POSTGRES_DB=postgres
+        volumes:
+            - database-data:/var/lib/postgresql/data/ # Persist data even if container shuts down
+        ports: 
+            - "5432:5432"
+        networks: 
+            - centinela-net
+    pgadmin:
+        container_name: pgadmin
+        image: dpage/pgadmin4:latest
+        volumes: 
+            - ./pgadmin:/var/lib/pgadmin
+        ports:
+            - 8080:80
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=user@user.com
+            - PGADMIN_DEFAULT_PASSWORD=postgres
+        networks: 
+            - centinela-net
+    rabbit:
+        container_name: rabbit
+        image: rabbitmq:management
+        volumes:
+            - ./rabbitmq/etc:/etc/rabbitmq
+            - ./rabbitmq/data:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
+            - ./rabbitmq/logs:/var/log/rabbitmq/log
+        ports:
+            - 5672:5672
+            - 15672:15672
+        networks: 
+            - centinela-net
+networks:
+    centinela-net:
+        name: centinela-net
+volumes:
+    database-data:

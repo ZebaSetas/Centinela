@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card class="header">
+            <nb-card-header>Estadísticas</nb-card-header>
+            <nb-card-body>
+                <form class="form-inline">
+                    <label>Rango de fechas</label>
+                    <input nbInput class="form datepicker" placeholder="Seleccione" [nbDatepicker]="rangepicker"
+                        [(ngModel)]="calendarDate" #myCalendarDates="ngModel" name="myCalendarDates">
+                    <nb-rangepicker #rangepicker></nb-rangepicker>
+                    <button class="form" nbButton status="primary" (click)="showStatistics(myCalendarDates)">Consultar</button>
+                </form>
+            </nb-card-body>
+        </nb-card>
+        <div *ngIf="hasResult">
+            <nb-card class="result">
+                <nb-card-body>
+                    <h5 class="text-info"> {{textResult}}: <b class="text-danger">{{countErrors}} errores </b></h5>
+                </nb-card-body>
+            </nb-card>
+            <div class="form-inline charts">
+                <div class="chart">
+                    <nb-card>
+                        <nb-card-header>Errores resueltos</nb-card-header>
+                        <nb-card-body>
+                            <div echarts [options]="total_options" class="echart"></div>
+                        </nb-card-body>
+                    </nb-card>
+                </div>
+                <div class="chart">
+                    <nb-card>
+                        <nb-card-header>Errores por severidad</nb-card-header>
+                        <nb-card-body>
+                            <div echarts [options]="severity_options" class="echart"></div>
+                        </nb-card-body>
+                    </nb-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

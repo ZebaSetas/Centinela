@@ -1,0 +1,1 @@
+docker-compose -p Cloud -f docker-compose-cloud.yml up --build -d

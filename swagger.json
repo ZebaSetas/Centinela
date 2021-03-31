@@ -1,0 +1,1163 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "ASP - v2",
+    "contact": {}
+  },
+  "host": "example.com",
+  "basePath": "/api/v1",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "summary": "Create new Organization with Admin User",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "CreatenewOrganizationwithAdminUser",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreatenewOrganizationwithAdminUserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "Get Users  In Org",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "GetUsersInOrg",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Login",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "Login",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/LoginRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/invitations": {
+      "post": {
+        "summary": "Create Invite",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "CreateInvite",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateInviteRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/invitations/1": {
+      "get": {
+        "summary": "Get Invitation Details",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "GetInvitationDetails",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "Accept Invitation",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "AcceptInvitation",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AcceptInvitationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/organizations": {
+      "post": {
+        "summary": "Create Organization",
+        "tags": [
+          "Organization"
+        ],
+        "operationId": "CreateOrganization",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateOrganizationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "Get Organizations",
+        "tags": [
+          "Organization"
+        ],
+        "operationId": "GetOrganizations",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/organizations/12": {
+      "get": {
+        "summary": "Get Organization by ID",
+        "tags": [
+          "Organization"
+        ],
+        "operationId": "GetOrganizationbyID",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/systems": {
+      "post": {
+        "summary": "Create System",
+        "tags": [
+          "Organization"
+        ],
+        "operationId": "CreateSystem",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateSystemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "get": {
+        "summary": "Get Systems",
+        "tags": [
+          "Organization"
+        ],
+        "operationId": "GetSystems",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/systems/2/environments": {
+      "post": {
+        "summary": "Creae Environment",
+        "tags": [
+          "Organization"
+        ],
+        "operationId": "CreaeEnvironment",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreaeEnvironmentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "get": {
+        "summary": "Get Environments",
+        "tags": [
+          "Organization"
+        ],
+        "operationId": "GetEnvironments",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/bugs": {
+      "post": {
+        "summary": "Create Bug",
+        "tags": [
+          "Bugs"
+        ],
+        "operationId": "CreateBug",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "keyConnection",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateBugRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "Get Bugs",
+        "tags": [
+          "Bugs"
+        ],
+        "operationId": "GetBugs",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/bugs/2": {
+      "put": {
+        "summary": "Update Bug",
+        "tags": [
+          "Bugs"
+        ],
+        "operationId": "UpdateBug",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateBugRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/notifications/ping": {
+      "get": {
+        "summary": "Ping",
+        "tags": [
+          "Notifications"
+        ],
+        "operationId": "Ping",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/preferences": {
+      "post": {
+        "summary": "Add/Update Preference",
+        "tags": [
+          "Notifications"
+        ],
+        "operationId": "Add/UpdatePreference",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Add~1UpdatePreferenceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "get": {
+        "summary": "Get Preferences",
+        "tags": [
+          "Notifications"
+        ],
+        "operationId": "GetPreferences",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/preferences/general": {
+      "post": {
+        "summary": "Add/Update General Preference",
+        "tags": [
+          "Notifications"
+        ],
+        "operationId": "Add/UpdateGeneralPreference",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Add~1UpdateGeneralPreferenceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "get": {
+        "summary": "Get General Preferences",
+        "tags": [
+          "Notifications"
+        ],
+        "operationId": "GetGeneralPreferences",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/reports/statistics": {
+      "get": {
+        "summary": "Statistics Report",
+        "tags": [
+          "Reports"
+        ],
+        "operationId": "StatisticsReport",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dateFrom",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "dateTo",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/reports/critical": {
+      "get": {
+        "summary": "Critical",
+        "tags": [
+          "Reports"
+        ],
+        "operationId": "Critical",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "keyConnection",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/reports/bugs/topUsers/solved": {
+      "get": {
+        "summary": "Solved",
+        "tags": [
+          "Reports"
+        ],
+        "operationId": "Solved",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/reports/bugs/notAssigned": {
+      "get": {
+        "summary": "Not Assigned",
+        "tags": [
+          "Reports"
+        ],
+        "operationId": "NotAssigned",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "keyConnection",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/costs": {
+      "get": {
+        "summary": "Get Costs",
+        "tags": [
+          "CostsExplorer"
+        ],
+        "operationId": "GetCosts",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "From",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "To",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "definitions": {
+    "CreatenewOrganizationwithAdminUserRequest": {
+      "title": "CreatenewOrganizationwithAdminUserRequest",
+      "example": {
+        "name": "{{$randomCompanyName}}",
+        "user": {
+          "name": "Matias Settimo",
+          "email": "MLsettimo@gmaIL.com",
+          "password": "123456"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      },
+      "required": [
+        "name",
+        "user"
+      ]
+    },
+    "User": {
+      "title": "User",
+      "example": {
+        "name": "Matias Settimo",
+        "email": "MLsettimo@gmaIL.com",
+        "password": "123456"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "password"
+      ]
+    },
+    "LoginRequest": {
+      "title": "LoginRequest",
+      "example": {
+        "email": "mlsettimo@gmail.com",
+        "password": "123456"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "password"
+      ]
+    },
+    "CreateInviteRequest": {
+      "title": "CreateInviteRequest",
+      "example": {
+        "email": "yuyo@mailinator.com",
+        "role": 2
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "role": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "email",
+        "role"
+      ]
+    },
+    "AcceptInvitationRequest": {
+      "title": "AcceptInvitationRequest",
+      "example": {
+        "email": "yuyo@mailinator.com",
+        "name": "Maias",
+        "password": "bobaina"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "name",
+        "password"
+      ]
+    },
+    "CreateOrganizationRequest": {
+      "title": "CreateOrganizationRequest",
+      "example": {
+        "name": "{{$randomCompanyName}}"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "CreateSystemRequest": {
+      "title": "CreateSystemRequest",
+      "example": {
+        "name": "{{$randomBankAccountName}}"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "CreaeEnvironmentRequest": {
+      "title": "CreaeEnvironmentRequest",
+      "example": {
+        "name": "Develop"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "CreateBugRequest": {
+      "title": "CreateBugRequest",
+      "example": {
+        "title": "{{$randomCompanyName}}",
+        "description": "{{$randomLoremSentences}}",
+        "severity": 1
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "severity"
+      ]
+    },
+    "UpdateBugRequest": {
+      "title": "UpdateBugRequest",
+      "example": {
+        "id": 2,
+        "title": "New Stark",
+        "description": "description",
+        "severity": 1,
+        "environmentId": 1,
+        "systemId": 1,
+        "userId": 1,
+        "stateId": 1
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "environmentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "systemId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "stateId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "severity",
+        "environmentId",
+        "systemId",
+        "userId",
+        "stateId"
+      ]
+    },
+    "Add/UpdatePreferenceRequest": {
+      "title": "Add/UpdatePreferenceRequest",
+      "example": {
+        "timeHour": 23,
+        "timeMinute": 39,
+        "severity": 1,
+        "isImmediate": true,
+        "isEnabled": true
+      },
+      "type": "object",
+      "properties": {
+        "timeHour": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "timeMinute": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "severity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "isImmediate": {
+          "type": "boolean"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "timeHour",
+        "timeMinute",
+        "severity",
+        "isImmediate",
+        "isEnabled"
+      ]
+    },
+    "Add/UpdateGeneralPreferenceRequest": {
+      "title": "Add/UpdateGeneralPreferenceRequest",
+      "example": {
+        "isEnabled": true
+      },
+      "type": "object",
+      "properties": {
+        "isEnabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "isEnabled"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Users"
+    },
+    {
+      "name": "Organization"
+    },
+    {
+      "name": "Bugs"
+    },
+    {
+      "name": "Notifications"
+    },
+    {
+      "name": "Reports"
+    },
+    {
+      "name": "CostsExplorer"
+    }
+  ]
+}

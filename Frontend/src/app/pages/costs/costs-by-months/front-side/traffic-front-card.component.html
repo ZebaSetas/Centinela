@@ -1,0 +1,26 @@
+<nb-list>
+    <nb-list-item class="item" *ngFor="let item of frontCardData; trackBy: trackByDate">
+        <span>
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+          {{ item.date }}</span>
+        <span>
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+          $ {{ item.value }}</span>
+        <span class="delta" [class.up]="item.delta.up" [class.down]="!item.delta.up">
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            <nb-icon [icon]="item.delta.up ? 'arrow-up' : 'arrow-down'" pack="eva"></nb-icon>
+            {{ item.delta.char }}{{ item.delta.value }}%
+        </span>
+        <span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            <ngx-traffic-bar [barData]="item.comparisonPorcentage" [successDelta]="item.delta.up">
+            </ngx-traffic-bar>
+        </span>
+        <span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        <button nbButton outline status="info" (click)="selectMonth(item)">Ver detalle</button>
+        </span>
+
+    </nb-list-item>
+
+</nb-list>

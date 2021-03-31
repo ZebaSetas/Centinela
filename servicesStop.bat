@@ -1,0 +1,1 @@
+docker-compose -p SERVICES -f docker-compose-services.yml down

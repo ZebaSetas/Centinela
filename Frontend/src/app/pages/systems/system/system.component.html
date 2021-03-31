@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-lg-6">
+        <nb-alert *ngIf="messageError" outline="danger" role="alert">
+            <p class="alert-title"><b>Error!</b></p>
+            <p>{{ messageError }}</p>
+        </nb-alert>
+        <nb-alert *ngIf="messageOk" outline="success" role="alert">
+            <p class="alert-title"><b>Success!</b></p>
+            <p>{{ messageOk }}</p>
+        </nb-alert>
+
+        <nb-card>
+            <nb-card-header>
+                <h1 id="title" class="title">Crear sistema</h1>
+            </nb-card-header>
+            <nb-card-body>
+                <input type="text" nbInput [(ngModel)]="system.name" #systemName="ngModel" name="systemName"
+                    fullWidth placeholder="Nombre del Sistema" [status]="systemName.dirty ? (systemName.invalid ? 'danger' : 'success') : 'basic'"
+                    [required]="true" [attr.aria-invalid]="systemName.invalid && systemName.touched ? true : null">
+                <ng-container *ngIf="systemName.invalid && systemName.touched">
+                    <p class="caption status-danger" *ngIf="systemName.errors?.required">
+                        Debe ingresar el nombre del sistema!
+                    </p>
+                </ng-container>
+                <div class="buttons-row">
+                    <button nbButton fullWidth status="primary" (click)="createSystem()"> 
+                        Crear
+                    </button>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+{
+  "microservice_name": "Users"
+  , "invitation": {
+    "PENDING": "Pending"
+    , "CONFIRMED": "Confirmed"
+    , "DENIED": "Denied"
+  }
+}

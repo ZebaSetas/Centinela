@@ -1,0 +1,179 @@
+@import '../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+@include nb-install-component() {
+    .position-select {
+        min-width: 13rem;
+    }
+    .label {
+        display: block;
+    }
+    nb-card-footer button:first-child {
+        @include nb-ltr(margin-right, 1rem);
+        @include nb-rtl(margin-left, 1rem);
+    }
+}
+
+.left {
+    width: 65%;
+}
+
+.buttonGhost {
+    background: #222B45;
+    border-radius: 0!important;
+    margin-left: 10px;
+    border-color: #222B45 !important;
+    color: white;
+    font-size: 20px;
+    border-bottom: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+}
+
+.rigth {
+    margin-top: 20px;
+    width: 35%;
+}
+
+.title-left {
+    float: left;
+    text-align: left;
+    width: 100%;
+    .bugId {
+        float: left;
+        color: #598BFF;
+        font-size: 21px;
+        margin-top: 12px;
+    }
+    .title {
+        float: left;
+        margin-left: 20px;
+        .text-title {
+            font-size: 20px;
+            margin-top: 8px;
+        }
+        .organization {
+            float: left;
+            margin-top: 3px;
+            text-align: left;
+            .system {
+                color: #598BFF;
+                font-size: 14px;
+                margin-top: 5px;
+                float: left;
+            }
+            .enviroment {
+                font-size: 12px;
+                margin-left: 10px;
+                float: left;
+            }
+        }
+    }
+}
+
+.description {
+    margin-top: 15px;
+    margin-left: 30px;
+    .description-block {
+        float: left;
+        margin-top: 10px;
+        padding: 10px;
+        border-color: #598BFF;
+        border-style: solid;
+        border-width: 1px;
+        background-color: #151A30;
+        width: 88%;
+        min-height: 105px;
+        height: 80%;
+    }
+    .buttonAction {
+        float: left;
+        width: 5%;
+    }
+}
+
+.labelBug {
+    font-size: 12px;
+}
+
+.state {
+    margin-right: 3px;
+    margin-top: 15px;
+}
+
+.severity {
+    margin-top: 10px;
+}
+
+.developer {
+    margin-top: 5px;
+}
+
+.stateValue {
+    margin-left: 72px;
+}
+
+.severityValue {
+    margin-top: 5px;
+    margin-left: 55px;
+}
+
+.developerValue {
+    margin-left: 30px;
+}
+
+.cboxLarge {
+    width: 200px !important;
+}
+
+.cboxMin {
+    width: 169px !important;
+}
+
+.circle1 {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 500px;
+    margin-top: 6px !important;
+    margin: 0 .5em;
+    background-color: red;
+    vertical-align: baseline;
+    border: 2px solid transparent;
+}
+
+.circle2 {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 500px;
+    margin-top: 6px !important;
+    margin: 0 .5em;
+    background-color: orangered;
+    vertical-align: baseline;
+    border: 2px solid transparent;
+}
+
+.circle3 {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 500px;
+    margin-top: 6px !important;
+    margin: 0 .5em;
+    background-color: yellow;
+    vertical-align: baseline;
+    border: 2px solid transparent;
+}
+
+.circle4 {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 500px;
+    margin-top: 6px !important;
+    margin: 0 .5em;
+    background-color: grey;
+    vertical-align: baseline;
+    border: 2px solid transparent;
+}

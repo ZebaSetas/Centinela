@@ -1,0 +1,9 @@
+{
+  "microservice_name": "Reports"
+  , "state": {
+    "pending_id": 1
+    , "pending_name_bd": "No resuelto"
+    , "completed_id": 2
+    , "completed_name_bd": "Fue resuelto"
+  }
+}

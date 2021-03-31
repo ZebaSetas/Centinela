@@ -1,0 +1,1 @@
+docker-compose -p ASP -f docker-compose-prod.yml down

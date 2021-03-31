@@ -1,0 +1,192 @@
+version: "3.7"
+services: 
+    postgres:
+        container_name: postgres
+        image: postgres:12
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=centinelaDevPwd
+            - POSTGRES_DB=postgres
+        volumes:
+            - database-data:/var/lib/postgresql/data/ # Persist data even if container shuts down
+        ports: 
+            - "5432:5432"
+        networks: 
+            - centinela-net
+    pgadmin:
+        container_name: pgadmin
+        image: dpage/pgadmin4:latest
+        volumes: 
+            - ./pgadmin:/var/lib/pgadmin
+        depends_on: 
+                - postgres
+        ports:
+            - 8080:80
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=user@user.com
+            - PGADMIN_DEFAULT_PASSWORD=postgres
+        networks: 
+            - centinela-net
+    rabbit:
+        container_name: rabbit
+        image: rabbitmq:management
+        volumes:
+            - ./rabbitmq/etc:/etc/rabbitmq
+            - ./rabbitmq/data:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
+            - ./rabbitmq/logs:/var/log/rabbitmq/log
+        ports:
+            - 5672:5672
+            - 15672:15672
+        networks: 
+            - centinela-net
+    nginx:
+        build: ./nginx
+        container_name: nginx
+        ports:
+            - "80:80"
+        depends_on: 
+                - users
+                - bugs-api
+                - organizations
+                - notifications
+                - mailsender
+                - reports
+                - costs
+        networks: 
+        - centinela-net
+        logging:
+            driver: syslog
+            options:
+                syslog-address: "udp://logs.papertrailapp.com:39799"
+                tag: "{{.Name}}/{{.ID}}"
+    users:
+        build: ./users
+        container_name: users
+        command: ["node", "index.js"]
+        env_file: 
+            - production.env
+        ports: 
+            - "5000:5000"
+        depends_on: 
+                - rabbit
+                - postgres
+        networks: 
+            - centinela-net
+    organizations:
+        build: ./organizations
+        container_name: organizations
+        command: >
+         sh -c "ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &&
+         echo $TZ > /etc/timezone &&
+         exec node index.js"
+        env_file: 
+            - production.env
+        ports: 
+            - "5001:5001"
+        depends_on: 
+                - rabbit
+                - postgres
+        networks: 
+            - centinela-net
+    bugs-api:
+        build: ./bugs
+        container_name: bugs-api
+        command: ["node", "index.js"]
+        env_file: 
+            - production.env
+        ports: 
+            - "5002:5002"
+        depends_on: 
+                - rabbit
+                - postgres
+        networks: 
+            - centinela-net
+    bugs-processor:
+        build: ./bugs
+        container_name: bugs-processor
+        command: ["node", "bugProcessor.js"]
+        env_file: 
+            - production.env
+        depends_on: 
+                - rabbit
+                - postgres
+        networks: 
+            - centinela-net
+    bugs-queue-processor:
+        build: ./bugs
+        container_name: bugs-queue-processor
+        command: ["node", "queueProcessor.js"]
+        env_file: 
+            - production.env
+        depends_on: 
+                - rabbit
+                - postgres
+        networks: 
+            - centinela-net
+    costs:
+        build: ./CostExplorer
+        container_name: costs
+        env_file: 
+            - ./CostExplorer/environment.env
+            - production.env
+        ports:
+            - "5004:5004"        
+        depends_on: 
+                - rabbit
+                - postgres
+        networks: 
+            - centinela-net
+    mailsender:
+        build: ./mailSender
+        container_name: mailsender
+        command: ["node", "index.js"]
+        env_file: 
+            - production.env
+        ports:
+            - "5005:5005"        
+        depends_on: 
+                - rabbit
+        networks: 
+            - centinela-net
+    reports:
+        build: ./reports
+        container_name: reports
+        command: ["node", "index.js"]
+        env_file: 
+            - production.env
+        ports:
+            - "5006:5006"
+        depends_on: 
+                - rabbit
+                - postgres
+        networks: 
+            - centinela-net
+    reports-queue-processor:
+        build: ./reports
+        container_name: reports-queue-processor
+        command: ["node", "queueProcessor.js"]
+        env_file: 
+            - production.env
+        depends_on: 
+                - rabbit
+                - postgres
+        networks: 
+            - centinela-net
+    notifications:
+        build: ./notifications
+        container_name: notifications
+        command: ["node", "index.js"]
+        env_file: 
+            - production.env
+        ports:
+            - "5007:5007"
+        depends_on: 
+                - rabbit
+                - postgres
+        networks: 
+            - centinela-net
+networks:
+    centinela-net:
+        name: centinela-net
+volumes:
+    database-data:

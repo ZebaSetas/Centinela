@@ -1,0 +1,39 @@
+{
+  "name": "chassis",
+  "version": "1.0.0",
+  "description": "Larrosa-Settimo-Zawrzykraj-Chassis",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArqSoftPractica/Larrosa-Settimo-Zawrzykraj-Chassis.git"
+  },
+  "author": "Larrosa-Settimo-Zawrzykraj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArqSoftPractica/Larrosa-Settimo-Zawrzykraj-Chassis/issues"
+  },
+  "homepage": "https://github.com/ArqSoftPractica/Larrosa-Settimo-Zawrzykraj-Chassis#readme",
+  "dependencies": {
+    "ajv": "^6.12.6",
+    "amqplib": "^0.6.0",
+    "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "centinela-logger": "^2.0.1",
+    "config": "^3.3.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-http-context": "^1.2.4",
+    "mocha": "^8.2.1",
+    "newrelic": "^7.0.2",
+    "node-schedule": "^1.3.2",
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5",
+    "swagger-ui-express": "^4.1.5",
+    "uuid": "^8.3.2"
+  }
+}

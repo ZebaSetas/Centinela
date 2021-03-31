@@ -1,0 +1,7 @@
+{
+  "centinela-bug-reporter": {
+    "server_url": "http://localhost/api/v1/bugs"
+    , "keyConnection": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJFbnYgc2lzdGVtYSAxIiwic3lzdGVtSWQiOjEsImtleUNvbm5lY3Rpb24iOiIiLCJlbnZpcm9ubWVudElkIjoxLCJvcmdhbml6YXRpb25JZCI6MX0sImlhdCI6MTYwODQ4ODYyOH0.NdA_dStJdKyvp4FBtF2u43h-aLlewKqRrZqUAvPmnXc"
+    , "server_timeout": 500
+  }
+}

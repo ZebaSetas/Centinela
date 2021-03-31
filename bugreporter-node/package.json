@@ -1,0 +1,29 @@
+{
+  "name": "centinela-bug-reporter",
+  "version": "1.0.3",
+  "description": "Centinela bug report tool for NodeJS",
+  "main": "index.js",
+  "author": "Matias Settimo",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "config": "^3.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArqSoftPractica/Larrosa-Settimo-Zawrzykraj-bugreporter-node.git"
+  },
+  "keywords": [
+    "Centinela",
+    "Bug",
+    "Report Tool"
+  ],
+  "bugs": {
+    "url": "https://github.com/ArqSoftPractica/Larrosa-Settimo-Zawrzykraj-bugreporter-node/issues"
+  },
+  "homepage": "https://github.com/ArqSoftPractica/Larrosa-Settimo-Zawrzykraj-bugreporter-node#readme"
+}

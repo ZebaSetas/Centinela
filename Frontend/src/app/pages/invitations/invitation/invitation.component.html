@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card class="inline-form-card">
+            <nb-card-header>Generar invitación</nb-card-header>
+            <nb-card-body>
+                <form class="form-inline">
+                    <input name="invitationName" #invitationName="ngModel" type="text" [(ngModel)]="invitation.name" nbInput fullWidth placeholder="Nombre" [status]="invitationName.dirty ? (invitationName.invalid ? 'danger' : 'success') : 'basic'" [required]="true" [attr.aria-invalid]="invitationName.invalid && invitationName.touched ? true : null">
+                    <input name="invitationEmail" #invitationEmail="ngModel" type="text" [(ngModel)]="invitation.email" nbInput fullWidth placeholder="Correo" [status]="invitationEmail.dirty ? (invitationEmail.invalid ? 'danger' : 'success') : 'basic'" [required]="true"
+                        [attr.aria-invalid]="invitationEmail.invalid && invitationEmail.touched ? true : null">
+                    <nb-select placeholder="Rol" class="inputRole" name="invitationRole" #invitationRole="ngModel" [(ngModel)]="invitation.role" (selectedChange)="onMenuItemSelected($event)">
+                        <nb-option value=1>Desarrollador</nb-option>
+                        <nb-option value=2>Administrador</nb-option>
+                    </nb-select>
+                    <button nbButton status="primary" (click)="createInvitation(invitationName,invitationEmail,invitationRole)">Invitar</button>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

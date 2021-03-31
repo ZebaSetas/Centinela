@@ -1,0 +1,54 @@
+nb-tabset {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+ :host ::ng-deep ngx-tab1,
+ :host ::ng-deep ngx-tab2 {
+    display: block;
+    padding: 1rem 2rem;
+}
+
+.fancy-title {
+    color: #3366ff;
+}
+
+.preferences {
+    height: 100% !important;
+    width: 100% !important;
+    margin-left: 1px;
+}
+
+.severity {
+    height: 100% !important;
+    width: 24% !important;
+    margin-left: 1%;
+}
+
+.mat-radio-button~.mat-radio-button {
+    margin-left: 16px;
+}
+
+.cboxes {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.cbox {
+    margin-left: 10px;
+}
+
+.tabs {
+    height: 365px !important;
+}
+
+.hotAlert {
+    margin-top: 1% !important;
+    font-size: 29px !important;
+}
+
+.buttonStyle {
+    margin-top: 1% !important;
+    font-size: 29px !important;
+}

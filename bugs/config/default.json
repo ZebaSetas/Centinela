@@ -1,0 +1,20 @@
+{
+  "queryparams": {
+    "order": {
+      "severity_asc": "severity_asc"
+      , "severity_desc": "severity_desc"
+    }
+    , "state": {
+      "pendig": "pending"
+      , "completed": "completed"
+    }
+  }
+  , "microservice_name": "Bugs"
+  , "state": {
+    "pending_id": 1
+    , "pending_name_bd": "No resuelto"
+    , "completed_id": 2
+    , "completed_name_bd": "Fue resuelto"
+  }
+
+}

@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-lg-6">
+        <nb-alert *ngIf="messageError" outline="danger" role="alert">
+            <p class="alert-title"><b>Error!</b></p>
+            <div class="wordWrap">
+                <p class="alert-message">{{ messageError }}</p>
+            </div>
+        </nb-alert>
+        <nb-alert *ngIf="messageOk" outline="success" role="alert">
+            <p class="alert-title"><b>Success!</b></p>
+            <div class="wordWrap">
+                <p class="alert-message">{{ messageOk }}</p>
+            </div>
+            <div class="col-md-12 text-center">
+                <button nbButton status="success" (click)="copyMessage(keyConnection)" outline>Copiar clave</button>
+            </div>
+        </nb-alert>
+        <nb-card>
+            <nb-card-header>
+                <div class="container">
+                    <div class="left">
+                        Crear Ambiente
+                    </div>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <form>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" nbInput [(ngModel)]="environment.name" #environmentName="ngModel"
+                                name="environmentName" fullWidth placeholder="Nombre del Ambiente"
+                                [status]="environmentName.dirty ? (environmentName.invalid ? 'danger' : 'success') : 'basic'"
+                                [required]="true" [attr.aria-invalid]="environmentName.invalid && environmentName.touched ? true : null">
+
+                            <ng-container *ngIf="environmentName.invalid && environmentName.touched">
+                                <p class="caption status-danger" *ngIf="environmentName.errors?.required">
+                                    Debe ingresar el nombre del ambiente!
+                                </p>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12 text-center">
+                            <button nbButton status="primary" (click)="createEnvironment(environmentName)">Crear</button>
+                        </div>
+                    </div>
+                </form>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+<nb-card>
+    <nb-card-header>
+        <div class="container">
+            <div class="left">
+                Ambientes
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="source">
+        </ng2-smart-table>
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,56 @@
+{
+  "swagger": "2.0"
+  , "info": {
+    "version": "1.0"
+    , "title": "Centinela"
+    , "contact": {
+
+    }
+  }
+  , "host": "{{url}}"
+  , "basePath": "/api/v1"
+  , "schemes": [
+    "http"
+  ]
+  , "consumes": [
+    "application/json"
+  ]
+  , "produces": [
+    "application/json"
+  ]
+  , "paths": {
+    "/api/v1/ping": {
+      "get": {
+        "summary": "Is alive"
+        , "tags": [
+          "Is alive"
+        ]
+        , "operationId": "Isalive"
+        , "deprecated": false
+        , "produces": [
+          "application/json"
+        ]
+        , "parameters": [
+
+        ]
+        , "responses": {
+          "200": {
+            "description": ""
+            , "headers": {
+
+            }
+          }
+          , "400": {
+            "description": "Error"
+            , "headers": {
+
+            }
+          }
+        }
+      }
+    }
+    , "tags": [{
+      "name": "Is alive"
+    }]
+  }
+}

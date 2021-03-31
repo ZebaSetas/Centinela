@@ -1,0 +1,30 @@
+@import '../../../../@theme/styles/themes';
+@include nb-install-component() {
+    nb-card {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.left {
+    text-align: left;
+    float: left;
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.rigth {
+    text-align: right;
+    float: right;
+    .selector {
+        background-color: yellow;
+        width: 150px !important;
+    }
+}
+
+.col-lg-6 {
+    margin: auto;
+}
+
+div.wordWrap {
+    word-wrap: break-word;
+}

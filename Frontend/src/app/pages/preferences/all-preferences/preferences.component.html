@@ -1,0 +1,250 @@
+<div class="row">
+    <div class="col-12">
+        <nb-card size="small" class="tabs">
+            <nb-tabset fullWidth>
+                <nb-tab tabTitle="Alertas por serveridad">
+                    <div class="row preferences">
+                        <nb-card size="small" class="severity">
+                            <nb-card-header class="fancy-title">
+                                Severidad 1
+                            </nb-card-header>
+                            <nb-card-body>
+                                <nb-radio-group name="severity_1" [(value)]="severity_1.selector" (valueChange)="severity1Change($event)">
+                                    <nb-radio [value]=selectors[0]>
+                                        {{selectors[0]}}
+                                    </nb-radio>
+                                    <nb-radio [value]=selectors[1]>
+                                        {{selectors[1]}}
+                                    </nb-radio>
+                                    <nb-radio [value]=selectors[2]>
+                                        {{selectors[2]}}
+                                    </nb-radio>
+                                </nb-radio-group>
+                                <div class="cboxes">
+                                    <label>&nbsp;Hora</label>
+                                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minutos</label>
+                                </div>
+                                <div>
+                                    <nb-select [disabled]="severity1IsNotUserType" placeholder="Hora" selected={{severity_1.preference.timeHour}} (selectedChange)="severity1Hour($event)">
+                                        <nb-option value="0">00</nb-option>
+                                        <nb-option value="1">01</nb-option>
+                                        <nb-option value="2">02</nb-option>
+                                        <nb-option value="3">03</nb-option>
+                                        <nb-option value="4">04</nb-option>
+                                        <nb-option value="5">05</nb-option>
+                                        <nb-option value="6">06</nb-option>
+                                        <nb-option value="7">07</nb-option>
+                                        <nb-option value="8">08</nb-option>
+                                        <nb-option value="9">09</nb-option>
+                                        <nb-option value="10">10</nb-option>
+                                        <nb-option value="11">11</nb-option>
+                                        <nb-option value="12">12</nb-option>
+                                        <nb-option value="13">13</nb-option>
+                                        <nb-option value="14">14</nb-option>
+                                        <nb-option value="15">15</nb-option>
+                                        <nb-option value="16">16</nb-option>
+                                        <nb-option value="17">17</nb-option>
+                                        <nb-option value="18">18</nb-option>
+                                        <nb-option value="19">19</nb-option>
+                                        <nb-option value="20">20</nb-option>
+                                        <nb-option value="21">21</nb-option>
+                                        <nb-option value="22">22</nb-option>
+                                        <nb-option value="23">23</nb-option>
+                                    </nb-select>
+                                    <nb-select [disabled]="severity1IsNotUserType" placeholder="Minuto" class="cbox" selected={{severity_1.preference.timeMinute}} (selectedChange)="severity1Minute($event)">
+                                        <nb-option value="0">00</nb-option>
+                                        <nb-option value="10">10</nb-option>
+                                        <nb-option value="20">20</nb-option>
+                                        <nb-option value="30">30</nb-option>
+                                        <nb-option value="40">40</nb-option>
+                                        <nb-option value="50">50</nb-option>
+                                    </nb-select>
+                                </div>
+                            </nb-card-body>
+                        </nb-card>
+                        <nb-card size="small" class="severity">
+                            <nb-card-header class="fancy-title">
+                                Severidad 2
+                            </nb-card-header>
+                            <nb-card-body>
+                                <nb-radio-group name="severity_2" [(value)]="severity_2.selector" (valueChange)="severity2Change($event)">
+                                    <nb-radio [value]=selectors[0]>
+                                        {{selectors[0]}}
+                                    </nb-radio>
+                                    <nb-radio [value]=selectors[1]>
+                                        {{selectors[1]}}
+                                    </nb-radio>
+                                    <nb-radio [value]=selectors[2]>
+                                        {{selectors[2]}}
+                                    </nb-radio>
+                                </nb-radio-group>
+                                <div class="cboxes">
+                                    <label>&nbsp;Hora</label>
+                                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minutos</label>
+                                </div>
+                                <div>
+                                    <nb-select [disabled]="severity2IsNotUserType" placeholder="Hora" selected={{severity_2.preference.timeHour}} (selectedChange)="severity2Hour($event)">
+                                        <nb-option value="0">00</nb-option>
+                                        <nb-option value="1">01</nb-option>
+                                        <nb-option value="2">02</nb-option>
+                                        <nb-option value="3">03</nb-option>
+                                        <nb-option value="4">04</nb-option>
+                                        <nb-option value="5">05</nb-option>
+                                        <nb-option value="6">06</nb-option>
+                                        <nb-option value="7">07</nb-option>
+                                        <nb-option value="8">08</nb-option>
+                                        <nb-option value="9">09</nb-option>
+                                        <nb-option value="10">10</nb-option>
+                                        <nb-option value="11">11</nb-option>
+                                        <nb-option value="12">12</nb-option>
+                                        <nb-option value="13">13</nb-option>
+                                        <nb-option value="14">14</nb-option>
+                                        <nb-option value="15">15</nb-option>
+                                        <nb-option value="16">16</nb-option>
+                                        <nb-option value="17">17</nb-option>
+                                        <nb-option value="18">18</nb-option>
+                                        <nb-option value="19">19</nb-option>
+                                        <nb-option value="20">20</nb-option>
+                                        <nb-option value="21">21</nb-option>
+                                        <nb-option value="22">22</nb-option>
+                                        <nb-option value="23">23</nb-option>
+                                    </nb-select>
+                                    <nb-select [disabled]="severity2IsNotUserType" placeholder="Minuto" class="cbox" selected={{severity_2.preference.timeMinute}} (selectedChange)="severity2Minute($event)">
+                                        <nb-option value="0">00</nb-option>
+                                        <nb-option value="10">10</nb-option>
+                                        <nb-option value="20">20</nb-option>
+                                        <nb-option value="30">30</nb-option>
+                                        <nb-option value="40">40</nb-option>
+                                        <nb-option value="50">50</nb-option>
+                                    </nb-select>
+                                </div>
+                            </nb-card-body>
+                        </nb-card>
+                        <nb-card size="small" class="severity">
+                            <nb-card-header class="fancy-title">
+                                Severidad 3
+                            </nb-card-header>
+                            <nb-card-body>
+                                <nb-radio-group name="severity_3" [(value)]="severity_3.selector" (valueChange)="severity3Change($event)">
+                                    <nb-radio [value]=selectors[0]>
+                                        {{selectors[0]}}
+                                    </nb-radio>
+                                    <nb-radio [value]=selectors[1]>
+                                        {{selectors[1]}}
+                                    </nb-radio>
+                                    <nb-radio [value]=selectors[2]>
+                                        {{selectors[2]}}
+                                    </nb-radio>
+                                </nb-radio-group>
+                                <div class="cboxes">
+                                    <label>&nbsp;Hora</label>
+                                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minutos</label>
+                                </div>
+                                <div>
+                                    <nb-select [disabled]="severity3IsNotUserType" placeholder="Hora" selected={{severity_3.preference.timeHour}} (selectedChange)="severity3Hour($event)">
+                                        <nb-option value="0">00</nb-option>
+                                        <nb-option value="1">01</nb-option>
+                                        <nb-option value="2">02</nb-option>
+                                        <nb-option value="3">03</nb-option>
+                                        <nb-option value="4">04</nb-option>
+                                        <nb-option value="5">05</nb-option>
+                                        <nb-option value="6">06</nb-option>
+                                        <nb-option value="7">07</nb-option>
+                                        <nb-option value="8">08</nb-option>
+                                        <nb-option value="9">09</nb-option>
+                                        <nb-option value="10">10</nb-option>
+                                        <nb-option value="11">11</nb-option>
+                                        <nb-option value="12">12</nb-option>
+                                        <nb-option value="13">13</nb-option>
+                                        <nb-option value="14">14</nb-option>
+                                        <nb-option value="15">15</nb-option>
+                                        <nb-option value="16">16</nb-option>
+                                        <nb-option value="17">17</nb-option>
+                                        <nb-option value="18">18</nb-option>
+                                        <nb-option value="19">19</nb-option>
+                                        <nb-option value="20">20</nb-option>
+                                        <nb-option value="21">21</nb-option>
+                                        <nb-option value="22">22</nb-option>
+                                        <nb-option value="23">23</nb-option>
+                                    </nb-select>
+                                    <nb-select [disabled]="severity3IsNotUserType" placeholder="Minuto" class="cbox" selected={{severity_3.preference.timeMinute}} (selectedChange)="severity3Minute($event)">
+                                        <nb-option value="0">00</nb-option>
+                                        <nb-option value="10">10</nb-option>
+                                        <nb-option value="20">20</nb-option>
+                                        <nb-option value="30">30</nb-option>
+                                        <nb-option value="40">40</nb-option>
+                                        <nb-option value="50">50</nb-option>
+                                    </nb-select>
+                                </div>
+
+                            </nb-card-body>
+                        </nb-card>
+                        <nb-card size="small" class="severity">
+                            <nb-card-header class="fancy-title">
+                                Severidad 4
+                            </nb-card-header>
+                            <nb-card-body>
+                                <nb-radio-group name="severity_4" [(value)]="severity_4.selector" (valueChange)="severity4Change($event)">
+                                    <nb-radio [value]=selectors[0]>
+                                        {{selectors[0]}}
+                                    </nb-radio>
+                                    <nb-radio [value]=selectors[1]>
+                                        {{selectors[1]}}
+                                    </nb-radio>
+                                    <nb-radio [value]=selectors[2]>
+                                        {{selectors[2]}}
+                                    </nb-radio>
+                                </nb-radio-group>
+                                <div class="cboxes">
+                                    <label>&nbsp;Hora</label>
+                                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minutos</label>
+                                </div>
+                                <div>
+                                    <nb-select [disabled]="severity4IsNotUserType" placeholder="Hora" selected={{severity_4.preference.timeHour}} (selectedChange)="severity4Hour($event)">
+                                        <nb-option value="0">00</nb-option>
+                                        <nb-option value="1">01</nb-option>
+                                        <nb-option value="2">02</nb-option>
+                                        <nb-option value="3">03</nb-option>
+                                        <nb-option value="4">04</nb-option>
+                                        <nb-option value="5">05</nb-option>
+                                        <nb-option value="6">06</nb-option>
+                                        <nb-option value="7">07</nb-option>
+                                        <nb-option value="8">08</nb-option>
+                                        <nb-option value="9">09</nb-option>
+                                        <nb-option value="10">10</nb-option>
+                                        <nb-option value="11">11</nb-option>
+                                        <nb-option value="12">12</nb-option>
+                                        <nb-option value="13">13</nb-option>
+                                        <nb-option value="14">14</nb-option>
+                                        <nb-option value="15">15</nb-option>
+                                        <nb-option value="16">16</nb-option>
+                                        <nb-option value="17">17</nb-option>
+                                        <nb-option value="18">18</nb-option>
+                                        <nb-option value="19">19</nb-option>
+                                        <nb-option value="20">20</nb-option>
+                                        <nb-option value="21">21</nb-option>
+                                        <nb-option value="22">22</nb-option>
+                                        <nb-option value="23">23</nb-option>
+                                    </nb-select>
+                                    <nb-select [disabled]="severity4IsNotUserType" placeholder="Minuto" class="cbox" selected={{severity_4.preference.timeMinute}} (selectedChange)="severity4Minute($event)">
+                                        <nb-option value="0">00</nb-option>
+                                        <nb-option value="10">10</nb-option>
+                                        <nb-option value="20">20</nb-option>
+                                        <nb-option value="30">30</nb-option>
+                                        <nb-option value="40">40</nb-option>
+                                        <nb-option value="50">50</nb-option>
+                                    </nb-select>
+
+                                </div>
+                            </nb-card-body>
+                        </nb-card>
+                    </div>
+                </nb-tab>
+                <nb-tab tabTitle="Otras alertas">
+                    <div class="hotAlert">
+                        <nb-checkbox [checked]="preferenceIsEnabled" (checkedChange)="toggle($event)">Envío de correo en caso de que un error esté más de 2 días sin resolver</nb-checkbox>
+                    </div>
+                </nb-tab>
+            </nb-tabset>
+        </nb-card>
+    </div>
